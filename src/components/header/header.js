@@ -7,5 +7,13 @@ export default {
   		this.$refs.help.open()
   	}
   },
+  created() {
+    // this.$http.get('all')
+    // .then(response => { 
+    
+    // }, response => {
+
+    // });
+  },
   components: { help }
 }
