@@ -1,6 +1,6 @@
 # pokemon-battle
 
-> A simple pokémon battle game
+> This is the VueJS implementation to the [pokemon-battle project](https://github.com/vanderleisilva/pokemon-battle)
 
 ## Build Setup
 
