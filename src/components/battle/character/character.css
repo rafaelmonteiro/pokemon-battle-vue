@@ -1,3 +1,11 @@
+.thumbnail{ position: relative; }
+.attacking{
+	position: absolute;
+	right: 12px;
+	top: 4px;
+	padding: 4px;
+    border-radius: 4px;
+}
 .list-group-item{
 	padding: 3px 7px;
 	font-size: 0.9em;

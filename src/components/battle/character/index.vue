@@ -1,6 +1,10 @@
 <template>
 <div class="thumbnail" :class="condition.class" :title="condition.title">
 	<div class="title">
+		<div v-if="isAttacking" class="attacking bg-danger" :title="player.name + ' is attacking'">
+			On attack! 
+			<i class="fa fa-bolt" aria-hidden="true"></i>
+		</div>
 		<h3>{{player.name}}</h3>
 		<div title="Life" class="progress">
 		  <div class="progress-bar progress-bar-success" role="progressbar" :aria-valuenow="lifeStatus" aria-valuemin="0" aria-valuemax="100" :style="'width: ' + lifeStatus +'%'">
@@ -18,7 +22,7 @@
 	</div>
 	<div class="caption">
 		<ul title="Attacks" v-if="player.attacks" class="list-group">
-		  <li :title="!isCpu ? 'Click to trigger attack' : ''"  v-for="attack in player.attacks" class="list-group-item" v-bind:class="{ 'attack-click': !isCpu}" v-on:click="hit(attack)" >
+		  <li :title="!isCpu && !isAttacking ? 'Click to trigger attack' : ''"  v-for="attack in player.attacks" class="list-group-item" v-bind:class="{ 'attack-click': !isCpu && !isAttacking }" v-on:click="hit(attack)" >
 		  	<span class="attack-name">{{attack.name}}</span>
 		  	<span title="Type" class="label label-default">{{attack.type}}</span>
 		  	<span class="label label-danger">Power: {{attack.power}}</span>

@@ -2,7 +2,8 @@ export default {
   name: 'character',
   data () {
     return {
-      apiUrl: this.$http.options.root
+      apiUrl: this.$http.options.root,
+      isAttacking: false
     }
   },
   computed: {
@@ -23,8 +24,11 @@ export default {
   },
   methods: {
     hit(attack){
-      if (this.isCpu) { return; }
+      if (this.isCpu || this.isAttacking ) { return; }
+      
+      this.isAttacking=true;
       this.$emit('attack', attack);
+      setTimeout(()=> { this.isAttacking = false; }, 3000);
     }
   },
   props: {

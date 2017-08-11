@@ -49,6 +49,7 @@ export default {
         setTimeout(() => {
           this.actions.against.splice(0, 0, response.data.against);
           this.currentHealth.player = response.data.player.currentHealth;
+          
           this.isAlive(this.currentHealth.player, true);
         }, 2000);
         
