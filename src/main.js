@@ -5,7 +5,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import autoProgress from 'vue-auto-progress'
-import toastr from 'vue-toastr'
 import vueResource from 'vue-resource'
 
 Vue.use(vueResource)
@@ -19,6 +18,6 @@ Vue.http.options.root = 'https://pokemon-battle-lumen.herokuapp.com';
 new Vue({
   el: '#app',
   router,
-  template: '<div><App/><toastr ref="toastr"/><auto-progress/></div>',
-  components: { App, toastr, autoProgress }
+  template: '<div><App/><auto-progress/></div>',
+  components: { App, autoProgress }
 })
