@@ -2,7 +2,7 @@ import localForage from "localforage";
 
 export default {
   install(Vue, options){
-    Vue.$backends = {
+    Vue.backends = {
 		get(){
 			return localForage.getItem('backends').then(value => {
 
@@ -15,5 +15,7 @@ export default {
 		    }); 
 		}
 	}
+
+	Vue.prototype.$backends = { get: Vue.backends.get };
   }
 }

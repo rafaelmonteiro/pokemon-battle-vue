@@ -7,7 +7,7 @@ export default (to, from, next) => {
     return;
   }
 
-  Vue.$backends.get().then(items => {
+  Vue.backends.get().then(items => {
     if (items.length == 0) {
       next({ name: 'noapi' });
       return;
@@ -16,7 +16,7 @@ export default (to, from, next) => {
     Vue.http.options.root = items[0].url;
     next();
   })
-  .catch((e)=>{ console.log(e);
+  .catch((e)=>{
     next({ name: 'error' });
   });
 

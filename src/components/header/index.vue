@@ -7,10 +7,9 @@
 			<slot></slot>	
 		</h1>
 		<div class="form-inline">
-			<div class="form-group">
-			    <select class="form-control" title="Framework">
-				  <option>VueJS</option>
-				  <option>React</option>
+			<div v-if="apis.length" class="form-group">
+			    <select v-on:change="changeApi" v-model="selectedApi"  class="form-control" title="Backend Api">
+				  <option v-for="api in apis" v-bind:value="api" >{{ api.name }}</option>
 				</select>
 			</div>
 			<i v-on:click="help" class="btn btn-default fa fa-info-circle help" aria-hidden="true"></i>
