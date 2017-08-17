@@ -1,4 +1,4 @@
-# pokemon-battle
+# pokemon-battle-vue
 
 > This is the VueJS implementation to the [pokemon-battle project](https://github.com/vanderleisilva/pokemon-battle)
 
