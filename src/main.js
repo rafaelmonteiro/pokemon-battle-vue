@@ -4,15 +4,15 @@ import 'font-awesome/css/font-awesome.css'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import api from './components/api'
 import autoProgress from 'vue-auto-progress'
 import vueResource from 'vue-resource'
 
 Vue.use(vueResource)
+Vue.use(api, { url: 'https://vanderleisilva.github.io/pokemon-battle/backend-api.json' })
+
 window.jQuery = require('jquery');
 require('bootstrap');
-
-Vue.config.productionTip = false
-Vue.http.options.root = 'https://pokemon-battle-lumen.herokuapp.com';
 
 /* eslint-disable no-new */
 new Vue({

@@ -3,10 +3,11 @@ import Router from 'vue-router'
 import selection from '@/components/selection'
 import battle from '@/components/battle'
 import end from '@/components/end'
+import api from '@/components/api/router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -31,3 +32,7 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach(api);
+
+export default router;
