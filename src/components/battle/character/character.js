@@ -8,7 +8,8 @@ export default {
   },
   computed: {
     lifeStatus: function () {
-      return ((100*this.currentHealth)/this.player.health).toFixed(0);
+      let result = ((100*this.currentHealth)/this.player.health).toFixed(0);
+      return isNaN(result) ? 100 : result;
     },
     condition: function(){
       if (this.lifeStatus < 26) {

@@ -11,7 +11,8 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: '*',
+      path: '/',
+      alias: '*',
       name: 'selection',
       component: selection
     },
