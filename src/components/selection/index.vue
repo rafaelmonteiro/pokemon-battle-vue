@@ -4,7 +4,7 @@
 			<small>select your Pokémon</small>
 		</vue-header>
 	  	<div class="row">
-		  <div v-for="player in players" class="col-md-3">
+		  <div v-for="player in players" class="col-md-3 col-xs-6">
 		    <div v-on:click="select(player)" class="thumbnail">
  	        	<div class="title">
  	        		<h3>{{player.name}}</h3>

@@ -7,7 +7,7 @@
 			<slot></slot>	
 		</h1>
 		<div class="form-inline">
-			<div v-if="apis.length" class="form-group">
+			<div v-if="apis.length" class="form-group hidden-xs">
 			    <select v-on:change="changeApi" v-model="selectedApi"  class="form-control" title="Backend Api">
 				  <option v-for="api in apis" v-bind:value="api" >{{ api.name }}</option>
 				</select>
