@@ -13,16 +13,16 @@ export default {
   		this.$refs.help.open()
   	},
     changeApi(){
-      this.$http.options.root = this.selectedApi.url;
+      this.$backends.selected(this.selectedApi);
     }
   },
   created() {
-    this.$backends.get().then(i => { 
-      this.apis = i; 
-      if (i.length) { 
-        this.selectedApi = i[0] 
-      }
-    })
+    Promise.all([this.$backends.get(), this.$backends.selected()]).then(values => { 
+      this.apis = values[0]; 
+      if (!values[0].length) { return; }
+
+      this.selectedApi = values[1] ? values[1] : values[0][0];
+    });
   },
   components: { help }
 }

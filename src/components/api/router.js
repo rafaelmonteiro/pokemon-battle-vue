@@ -7,17 +7,17 @@ export default (to, from, next) => {
     return;
   }
 
-  Vue.backends.get().then(items => {
-    if (items.length == 0) {
+  Promise.all([Vue.backends.get(), Vue.backends.selected()]).then(values => { 
+
+    if (values[0].length == 0) {
       next({ name: 'noapi' });
       return;
     }
 
-    Vue.http.options.root = items[0].url;
+    Vue.http.options.root = values[1] ? values[1].url : values[0][0].url; 
     next();
-  })
-  .catch((e)=>{
+
+  }).catch(e => { 
     next({ name: 'error' });
   });
-
 }

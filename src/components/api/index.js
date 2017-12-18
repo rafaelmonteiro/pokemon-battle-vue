@@ -13,9 +13,17 @@ export default {
 					return response.data;
 				});
 		    }); 
+		},
+		selected(item){
+			if (!item) { return localForage.getItem('selectedBackend'); }
+
+			return localForage.setItem('selectedBackend', item);
 		}
 	}
 
-	Vue.prototype.$backends = { get: Vue.backends.get };
+	Vue.prototype.$backends = { 
+		get: Vue.backends.get, 
+		selected: Vue.backends.selected 
+	};
   }
 }
