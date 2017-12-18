@@ -17,6 +17,7 @@ export default {
 		selected(item){
 			if (!item) { return localForage.getItem('selectedBackend'); }
 
+			Vue.http.options.root = item.url;
 			return localForage.setItem('selectedBackend', item);
 		}
 	}
